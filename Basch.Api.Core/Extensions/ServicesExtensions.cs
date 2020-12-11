@@ -77,7 +77,7 @@ namespace Basch.Api.Core.Extensions
                         ValidateIssuerSigningKey = true,
                         IssuerSigningKey = new SymmetricSecurityKey(key),
                         ValidateIssuer = true,
-                        ValidIssuer = "Basch",
+                        ValidIssuer = "CactuarApi",
                         ValidateAudience = true,
                         ValidAudiences = new List<string>() { "Penelo" }
                     };

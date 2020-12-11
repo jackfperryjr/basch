@@ -6,11 +6,11 @@ namespace Basch.Api.Core.Swagger
     {
         public SwaggerSettings()
         {
-            Name = "Basch";
+            Name = "CactuarApi";
             Info = new OpenApiInfo
             {
-                Title = "Basch",
-                Description = "Authentication API."
+                Title = "CactuarApi",
+                Description = "Resource API for https://penelo.me."
             };
         }
 
