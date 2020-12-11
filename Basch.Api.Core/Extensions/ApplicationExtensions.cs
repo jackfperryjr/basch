@@ -1,22 +1,11 @@
 using System;
-using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Security.Cryptography;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json;
-using Basch.Api.Core.Abstractions;
-using Basch.Api.Core.Models;
 
 namespace Basch.Api.Core.Extensions
 {

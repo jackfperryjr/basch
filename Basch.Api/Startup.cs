@@ -6,7 +6,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.HttpOverrides;
 using Newtonsoft.Json.Serialization;
@@ -16,7 +15,6 @@ using Basch.Api.Core.Extensions;
 using Basch.Api.Core.Logging;
 using Basch.Api.Core.Security;
 using Basch.Api.Core.Swagger;
-using Basch.Api.Core.Models;
 
 namespace Basch.Api
 {

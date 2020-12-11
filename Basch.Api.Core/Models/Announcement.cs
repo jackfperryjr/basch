@@ -2,7 +2,7 @@ using System;
 
 namespace Basch.Api.Core.Models  
 {  
-    public class Feed
+    public class Announcement
     {  
         public Guid Id { get; set; }
         public string Content { get; set; }
