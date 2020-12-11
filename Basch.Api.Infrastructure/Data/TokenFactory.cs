@@ -8,10 +8,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Identity;
 using Basch.Api.Core.Abstractions;
-using Basch.Api.Core.Models;
-using Basch.Api.Core.Extensions;
 
 namespace Basch.Api.Infrastructure.Data
 {

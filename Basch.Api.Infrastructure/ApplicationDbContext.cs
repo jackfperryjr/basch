@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Basch.Api.Core.Models;
 
 namespace Basch.Api.Infrastructure
@@ -16,5 +15,8 @@ namespace Basch.Api.Infrastructure
         {
             base.OnModelCreating(builder);
         }
+
+        public DbSet<Announcement> Announcements { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
     }
 }
