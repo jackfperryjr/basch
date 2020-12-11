@@ -36,7 +36,7 @@ namespace Basch.Api.Infrastructure.Data
             var authSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_configuration.GetSection("AppSettings:Secret").Value));
 
             var token = new JwtSecurityToken(
-                issuer: "Basch", 
+                issuer: "CactuarApi", 
                 audience: "Penelo",
                 expires: DateTime.Now.AddHours(24),
                 claims: authClaims,

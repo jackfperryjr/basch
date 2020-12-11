@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ using Basch.Api.Core.Abstractions;
 namespace Basch.Api.Controllers.API.V1
 {
     [ApiVersion("1")]
-    [AllowAnonymous]
+    [Authorize]
     public class AnnouncementController : ApiControllerBase
     {
         private readonly IFactory<IQueryable<Announcement>, string> _announcementFactory;
@@ -21,7 +22,8 @@ namespace Basch.Api.Controllers.API.V1
             _announcementFactory = announcementFactory;
         }
         
-        [HttpGet]
+        [Obsolete]
+        [HttpGet("get")]
         public async Task<IActionResult> GetAll(string value, CancellationToken cancellationToken = new CancellationToken())
         {
             try

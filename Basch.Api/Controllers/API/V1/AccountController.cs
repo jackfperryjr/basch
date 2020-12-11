@@ -15,7 +15,7 @@ using Basch.Api.Core.Extensions;
 namespace Basch.Api.Controllers.API.V1
 {
     [ApiVersion("1")]
-    [AllowAnonymous]
+    [Authorize]
     public class AccountController : ApiControllerBase
     {
         private readonly IFactory<JwtSecurityToken, string> _tokenFactory;
@@ -62,6 +62,7 @@ namespace Basch.Api.Controllers.API.V1
         } 
 
         [Obsolete]
+        [AllowAnonymous]
         [HttpGet("token")] 
         public async Task<IActionResult> GetToken(string value, CancellationToken cancellationToken = new CancellationToken()) 
         { 
