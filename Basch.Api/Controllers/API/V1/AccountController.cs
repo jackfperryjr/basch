@@ -38,7 +38,7 @@ namespace Basch.Api.Controllers.API.V1
         { 
             var penelo = _httpContextAccessor.HttpContext.Request.Headers["Origin"];
             
-            if (penelo.ToString() == _configuration["Penelo"])
+            if (penelo.ToString() == _configuration["Penelo"] || penelo.ToString() == "http://localhost:8080")
             {
                 try
                 {

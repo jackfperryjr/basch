@@ -88,6 +88,9 @@ namespace Basch.Api
 
                         x.AddSecurityRequirement(security);
                     });  // Generates Authorize button and makes swagger aware of authorization with JWT
+
+            services.AddControllersWithViews();
+            services.AddRouting(x => x.LowercaseUrls = true);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -97,28 +100,28 @@ namespace Basch.Api
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            else 
-            {
-                app.UseSwaggerDocuments();
-            }
 
+            app.UseSwaggerDocuments();
             app.UseRouting();
             app.UseCors(x => x
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader());  
 
-            app.UseForwardedHeaders(new ForwardedHeadersOptions
-                {
-                    ForwardedHeaders = ForwardedHeaders.XForwardedFor |
-                    ForwardedHeaders.XForwardedProto
-                });  
+            // app.UseForwardedHeaders(new ForwardedHeadersOptions
+            //     {
+            //         ForwardedHeaders = ForwardedHeaders.XForwardedFor |
+            //         ForwardedHeaders.XForwardedProto
+            //     });  
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(x => {
+                x.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
                 x.MapControllers();
             });
         }
