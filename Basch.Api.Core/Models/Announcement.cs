@@ -6,6 +6,7 @@ namespace Basch.Api.Core.Models
     {  
         public Guid Id { get; set; }
         public string Content { get; set; }
+        public string ContentImage { get; set; }
         public string Image { get; set; }
         public int Like { get; set; }
         public int Dislike { get; set; }
