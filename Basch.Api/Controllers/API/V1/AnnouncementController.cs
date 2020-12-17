@@ -15,11 +15,14 @@ namespace Basch.Api.Controllers.API.V1
     public class AnnouncementController : ApiControllerBase
     {
         private readonly IFactory<IQueryable<Announcement>, string> _announcementFactory;
+        private readonly IStore<object[]> _reactionStore;
 
         public AnnouncementController(
-            IFactory<IQueryable<Announcement>, string> announcementFactory)
+            IFactory<IQueryable<Announcement>, string> announcementFactory,
+            IStore<object[]> reactionStore)
         {
             _announcementFactory = announcementFactory;
+            _reactionStore = reactionStore;
         }
         
         [Obsolete]
@@ -40,6 +43,57 @@ namespace Basch.Api.Controllers.API.V1
                         message = "There's nothing to show."
                     });                
                 }
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
+        [Obsolete]
+        [HttpPut("like/{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Like(Guid id, CancellationToken cancellationToken = new CancellationToken()) 
+        {    
+            object[] reaction = {id, "like"};
+            try
+            {
+                var count = await _reactionStore.UpdateAsync(reaction, cancellationToken);
+                return Ok(count[1]);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
+        [Obsolete]
+        [HttpPut("dislike/{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Dislike(Guid id, CancellationToken cancellationToken = new CancellationToken()) 
+        {    
+            object[] reaction = {id, "dislike"};
+            try
+            {
+                var count = await _reactionStore.UpdateAsync(reaction, cancellationToken);
+                return Ok(count[1]);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
+        [Obsolete]
+        [HttpPut("love/{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Love(Guid id, CancellationToken cancellationToken = new CancellationToken()) 
+        {    
+            object[] reaction = {id, "love"};
+            try
+            {
+                var count = await _reactionStore.UpdateAsync(reaction, cancellationToken);
+                return Ok(count[1]);
             }
             catch
             {
